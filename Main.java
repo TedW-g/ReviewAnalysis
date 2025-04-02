@@ -2,7 +2,9 @@ public class Main
 {
     public static void main(String[] args) 
     {
-        Review[] coolReviews = {one(4, "Good! Thx"), two(3, "OK site", three(5, "Great!"), four(2, "Poor! Bad."), five(3, ""))};
-        System.out.println();
+        Review[] coolReviews = {new Review(4, "Good! Thx"), new Review(3, "OK site"), new Review(5, "Great!"), new Review(2, "Poor! Bad."), new Review(3, "")};
+        ReviewAnalysis r = new ReviewAnalysis(coolReviews);
+        System.out.println(r.getAverageRating());
+
     }
 }
