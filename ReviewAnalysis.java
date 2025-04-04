@@ -26,12 +26,22 @@ public class ReviewAnalysis
         for (Review r : allReviews)
         {
             String toAdd = r.getComment();
-            arr.add(toAdd);
+            String hyphen = "-";
+            if (toAdd.length() > 0) arr.add(r.getRating() + hyphen + toAdd);
         }
-        for (int i = 0; i < arr.size(); i++)
+        for (int i = arr.size() - 1; i >= 0; i--)
         {
-            if (arr.get(i))
+            String comment = arr.get(i);
+            boolean hasExclaim = false;
+            for (int o = 0; o < comment.length(); o++)
+            {
+                if (comment.substring(o,o + 1).equals("!")) hasExclaim = true;
+            }
+            if (!hasExclaim)
+            {
+                arr.remove(i);
+            }
         }
-        return null;
+        return arr;
     }
 }
